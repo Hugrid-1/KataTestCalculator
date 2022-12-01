@@ -85,8 +85,8 @@ func main() {
 	for {
 		fmt.Println("Please enter an example of 2 Arabic or Roman numerals")
 		text, _ := reader.ReadString('\n')
-		text = strings.TrimSpace(text)
-
+		text = strings.ReplaceAll(text, " ", "")
+		text = strings.TrimRight(text, "\n")
 		operatorIndex := strings.IndexAny(text, operators)
 		hasArabic := strings.ContainsAny(text, numbers)
 		hasRoman := strings.ContainsAny(text, romanSymbols)
